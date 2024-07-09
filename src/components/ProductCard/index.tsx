@@ -1,5 +1,7 @@
 import { Bag } from 'phosphor-react'
 
+import { useProductCart } from '@/store/CartProductContext'
+
 import {
   ButtonAddProduct,
   ProductCardContainer,
@@ -11,6 +13,7 @@ import {
 } from './style'
 
 type ProductCardProps = {
+  id: number
   name: string
   brand: string
   description: string
@@ -19,12 +22,19 @@ type ProductCardProps = {
 }
 
 const ProductCard = ({
+  id,
   name,
   brand,
   description,
   price,
   image,
 }: ProductCardProps) => {
+  const { AddToCart } = useProductCart()
+
+  const handleAddProductCart = () => {
+    AddToCart(id, name, price, image)
+  }
+
   return (
     <ProductCardContainer>
       <ProductImage src={image} />
@@ -39,7 +49,7 @@ const ProductCard = ({
 
       <ProductCardSubtitle>{description}</ProductCardSubtitle>
 
-      <ButtonAddProduct>
+      <ButtonAddProduct onClick={handleAddProductCart}>
         <Bag size={14} />
         <span>COMPRAR</span>
       </ButtonAddProduct>

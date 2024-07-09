@@ -4,4 +4,5 @@ export type ProductDTO = {
   brand: string
   description: string
   price: number
+  photo: string
 }

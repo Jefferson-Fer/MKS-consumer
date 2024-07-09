@@ -5,12 +5,14 @@ import { defaultTheme } from '@/styles/theme/default'
 export const ProductCardCartContainer = styled.div`
   width: 100%;
 
+  position: relative;
+
   margin-bottom: 1rem;
   padding: 1rem;
 
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   gap: 2rem;
 
   border-radius: 8px;
@@ -25,6 +27,12 @@ export const ProductCardCartImage = styled.img`
 `
 
 export const ProductCardCartTitle = styled.span`
+  display: flex;
+  align-items: center;
+
+  width: 6rem;
+  height: 2rem;
+
   font-weight: 400;
   font-size: 0.8125rem;
   color: ${defaultTheme['gray-500']};
@@ -45,7 +53,8 @@ export const ProductCardCardQuantity = styled.div`
 `
 
 export const ProductCartButtonQuantity = styled.div`
-  width: 3.5rem;
+  max-width: 3.8rem;
+  min-width: 3.8rem;
 
   display: flex;
   align-items: center;
@@ -80,11 +89,38 @@ export const ProductCartButtonQuantity = styled.div`
     &:hover {
       color: ${defaultTheme['gray-300']};
     }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
   }
 `
 
 export const ProductCardCartPrice = styled.span`
+  max-width: 4.5rem;
+  min-width: 4.5rem;
+
   font-weight: 700;
   font-size: 0.875rem;
   line-height: 1.0625rem;
+`
+
+export const ButtonProductRemove = styled.button`
+  padding: 0.5rem;
+
+  position: absolute;
+  top: -10%;
+  right: -5%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+
+  border-radius: 999999px;
+  border: 0px;
+
+  color: ${defaultTheme.white};
+  background-color: ${defaultTheme.black};
 `

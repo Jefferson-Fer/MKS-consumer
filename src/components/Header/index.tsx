@@ -3,6 +3,8 @@
 import * as Dialog from '@radix-ui/react-dialog'
 import { ShoppingCart } from 'phosphor-react'
 
+import { useProductCart } from '@/store/CartProductContext'
+
 import ModalProductsInCart from '../ModalProductsInCart'
 import {
   ButtonShoppingCart,
@@ -14,6 +16,8 @@ import {
 } from './styles'
 
 const Header = () => {
+  const { products } = useProductCart()
+
   return (
     <HeaderContainer>
       <HeaderTitleSubtitle>
@@ -25,7 +29,7 @@ const Header = () => {
         <Dialog.Trigger asChild>
           <ButtonShoppingCart>
             <ShoppingCart fill="black" size={18} />
-            <CountItemCart>0</CountItemCart>
+            <CountItemCart>{products.length}</CountItemCart>
           </ButtonShoppingCart>
         </Dialog.Trigger>
 

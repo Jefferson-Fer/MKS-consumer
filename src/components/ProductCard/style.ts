@@ -3,13 +3,14 @@ import styled from 'styled-components'
 import { defaultTheme } from '@/styles/theme/default'
 
 export const ProductCardContainer = styled.div`
-  width: 13.625rem;
-  height: 17.8125rem;
+  width: 17rem;
+  height: 20rem;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  gap: 0.5rem;
 
   border-radius: 8px;
 `
@@ -49,6 +50,12 @@ export const ProductCardPrice = styled.span`
 export const ProductCardSubtitle = styled.span`
   padding: 0 1rem;
 
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* número de linhas que deseja exibir */
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+
   font-size: 0.625rem;
   font-weight: 300;
   color: ${defaultTheme['gray-500']};
@@ -66,8 +73,14 @@ export const ButtonAddProduct = styled.button`
 
   border: 0;
 
+  cursor: pointer;
+
   color: ${defaultTheme.white};
   background-color: ${defaultTheme['blue-300']};
+
+  &:hover {
+    opacity: 0.7;
+  }
 
   span {
     font-weight: 600;
