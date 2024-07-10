@@ -1,5 +1,7 @@
 'use client'
 
+import { motion } from 'framer-motion'
+
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import ProductCard from '@/components/ProductCard'
@@ -22,15 +24,20 @@ const Home = () => {
       <MainContainer>
         {data?.map((product) => {
           return (
-            <ProductCard
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.2 }}
               key={product.id}
-              id={product.id}
-              name={product.name}
-              brand={product.brand}
-              description={product.description}
-              price={product.price}
-              image={product.photo}
-            />
+            >
+              <ProductCard
+                id={product.id}
+                name={product.name}
+                brand={product.brand}
+                description={product.description}
+                price={product.price}
+                image={product.photo}
+              />
+            </motion.div>
           )
         })}
       </MainContainer>

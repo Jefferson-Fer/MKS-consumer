@@ -1,7 +1,7 @@
 import {
+  MotionSkeletonContent,
   SkeletonCart,
   SkeletonContainer,
-  SkeletonContent,
   SkeletonFooter,
   SkeletonHeader,
   SkeletonLogo,
@@ -10,21 +10,36 @@ import {
 
 const Skeleton = () => {
   return (
-    <SkeletonContainer>
-      <SkeletonHeader>
+    <SkeletonContainer data-testid="skeleton-container">
+      <SkeletonHeader data-testid="skeleton-header">
         <SkeletonLogo />
         <SkeletonCart />
       </SkeletonHeader>
 
-      <SkeletonContent>
+      <MotionSkeletonContent
+        animate={{
+          scale: [0.9, 1, 0.9],
+        }}
+        transition={{
+          duration: 1,
+          repeat: Infinity,
+          ease: 'easeInOut',
+        }}
+        data-testid="skeleton-content"
+      >
         {Array(8)
           .fill(0)
           .map((_, index) => {
-            return <SkeletonProductCard key={index} />
+            return (
+              <SkeletonProductCard
+                key={index}
+                data-testid="skeleton-product-card"
+              />
+            )
           })}
-      </SkeletonContent>
+      </MotionSkeletonContent>
 
-      <SkeletonFooter />
+      <SkeletonFooter data-testid="skeleton-footer" />
     </SkeletonContainer>
   )
 }

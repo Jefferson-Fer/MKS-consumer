@@ -13,6 +13,7 @@ export const ProductCardContainer = styled.div`
   gap: 0.5rem;
 
   border-radius: 8px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.13);
 `
 
 export const ProductImage = styled.img`

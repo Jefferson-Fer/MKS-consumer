@@ -54,15 +54,24 @@ const ProductCardCart = ({
           <button
             onClick={handleRemoveQuantityProduct}
             disabled={quantity === 1}
+            data-testid={`cart-remove-product-${id}`}
           >
             -
           </button>
           <span>{quantity}</span>
-          <button onClick={handleAddQuantityProduct}>+</button>
+          <button
+            onClick={handleAddQuantityProduct}
+            data-testid={`cart-add-product-${id}`}
+          >
+            +
+          </button>
         </ProductCartButtonQuantity>
       </ProductCardCardQuantity>
       <ProductCardCartPrice>R${price * quantity}</ProductCardCartPrice>
-      <ButtonProductRemove onClick={handleRemoveProductCart}>
+      <ButtonProductRemove
+        onClick={handleRemoveProductCart}
+        data-testid="button-remove-product"
+      >
         <X size={14} />
       </ButtonProductRemove>
     </ProductCardCartContainer>

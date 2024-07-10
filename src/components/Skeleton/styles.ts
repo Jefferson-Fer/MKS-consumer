@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import styled from 'styled-components'
 
 import { defaultTheme } from '@/styles/theme/default'
@@ -41,7 +42,7 @@ export const SkeletonCart = styled.div`
   background-color: ${defaultTheme['gray-200']};
 `
 
-export const SkeletonContent = styled.main`
+export const MotionSkeletonContent = styled(motion.div)`
   flex: 1;
 
   padding: 3rem;

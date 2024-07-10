@@ -1,49 +1,60 @@
-import * as Dialog from '@radix-ui/react-dialog'
+import { motion } from 'framer-motion'
 import styled from 'styled-components'
 
 import { defaultTheme } from '@/styles/theme/default'
 
-export const DialogPortal = styled(Dialog.Portal)``
+export const ModalContainer = styled(motion.div)`
+  width: 30rem;
+  height: 100vh;
 
-export const DialogOverlay = styled(Dialog.Overlay)`
-  position: absolute;
+  position: fixed;
+  top: 0;
   right: 0;
+  background: rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: -5px 0px 6px rgba(0, 0, 0, 0.13);
 `
 
-export const DialogContent = styled(Dialog.Content)`
-  width: 30.375rem;
-  height: 100%;
+export const ModalContent = styled(motion.div)`
+  width: 100%;
+  height: 100vh;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  position: absolute;
-  top: 0%;
-  right: 0%;
+  box-shadow: '0px 4px 8px rgba(0, 0, 0, 0.5)';
 
-  background-color: ${defaultTheme['blue-300']};
   color: ${defaultTheme.white};
+  background-color: ${defaultTheme['blue-300']};
 `
 
-export const ModalCartContent = styled.div`
+export const ModalContentInfo = styled.div`
   flex: 1;
-  padding: 2rem 3rem;
-`
 
-export const ModalCartHeader = styled.header`
-  padding-bottom: 3rem;
+  padding: 2rem 3rem;
 
   display: flex;
+  flex-direction: column;
   align-items: center;
 `
 
-export const DialogTitle = styled(Dialog.Title)`
+export const ModalHeader = styled.header`
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
+
+export const ModalTitle = styled.h2`
   font: 1.6825rem;
   font-weight: 700;
 `
-
-export const DialogClose = styled(Dialog.Close)``
 
 export const ButtonCloseModal = styled.button`
   padding: 0.5rem;
@@ -63,8 +74,18 @@ export const ButtonCloseModal = styled.button`
   color: ${defaultTheme.white};
   background-color: ${defaultTheme.black};
 `
+
+export const ListProductsCart = styled.div`
+  flex: 1;
+
+  margin: 3rem 0rem;
+
+  list-style-type: none;
+  padding: 0;
+`
+
 export const ProductCartTotalCheckout = styled.div`
-  padding: 2rem;
+  width: 100%;
 
   display: flex;
   align-items: center;
